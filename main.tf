@@ -7,9 +7,9 @@ terraform {
 }
 
 provider "proxmox" {
-  pm_api_url = "https://192.168.1.9:8006/api2/json"
-  pm_api_token_id = "terraform@pve!Terraform-Token"
-  pm_api_token_secret = "1a0fe11f-629b-43b9-8ee0-a6ec50d474ba"
+  pm_api_url = "Proxmox-URL/api2/json"
+  pm_api_token_id = "token-id-xxx" # Create first an API token on Proxmox, paste the ID here
+  pm_api_token_secret = "token-secret-xxx" # Create first an API token on Proxmox, paste the secret here
   pm_tls_insecure = true
 }
 
@@ -25,7 +25,7 @@ resource "proxmox_vm_qemu" "vm-instance" {
         size        = "20G"
         type        = "scsi"
         storage     = "local-lvm"
-        //discard     = "off" # change this to on if you have SSD disk
+        //discard     = "on" # use this to on if you have SSD disk
     }
 
     network {
